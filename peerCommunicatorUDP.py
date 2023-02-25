@@ -9,7 +9,7 @@ from constMP import *
 myAddresses = gethostbyname_ex(gethostname())
 handShakes = [] # not used; only if we need to check whose handshake is missing
 handShakeCount = 0
-sendSocket = socket(AF_INET, SOCK_DGRAM)
+sendSocket = socket.socket(AF_INET, SOCK_DGRAM)
 
 i = 0
 while i < N:
@@ -62,7 +62,7 @@ class MsgHandler(threading.Thread):
 
         # Send the list of messages to the server (using a TCP socket) for comparison
         print('Sending the list of messages to the server for comparison...')
-        clientSock = socket(AF_INET, SOCK_STREAM)
+        clientSock = socket.socket(AF_INET, SOCK_STREAM)
         clientSock.connect((SERVER_ADDR, SERVER_PORT))
         msgPack = pickle.dumps(logList)
         clientSock.send(msgPack)
@@ -82,7 +82,7 @@ for addr in PEERS:
 print('I am process ', str(myself))
 
 #Create receive socket
-recvSocket = socket(AF_INET, SOCK_DGRAM)
+recvSocket = socket.socket(AF_INET, SOCK_DGRAM)
 recvSocket.bind((myAddresses[2][0], PORT))
 
 # Wait for other processes to start
