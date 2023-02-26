@@ -15,11 +15,6 @@ def send_cmd(cmd):
     n = int(n)
     n_msgs = int(n_msgs)
 
-    s = socket(AF_INET, SOCK_STREAM)
-    s.connect(('127.0.0.1', 4570))
-    s.send(dumps((n, n_msgs)))
-    s.close()
-
     msgPack = dumps((cmd, n, n_msgs))
     for peer in PEERS:
         s = socket(AF_INET, SOCK_STREAM)
