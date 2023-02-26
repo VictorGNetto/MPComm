@@ -14,7 +14,7 @@ class ConstUpdater(threading.Thread):
 		global N, N_MSGS
 
 		constUpdaterSocket = socket(AF_INET, SOCK_STREAM)
-		constUpdaterSocket.bind(('127.0.0.1', '4570'))
+		constUpdaterSocket.bind(('127.0.0.1', 4570))
 		constUpdaterSocket.listen(1)
 
 		while True:
