@@ -20,7 +20,6 @@ print('I am process ', str(myself))
 while True:
     (conn, addr) = s.accept()
     msgPack = conn.recv(1024)
-    print(msgPack)
     cmd, n, n_msgs = loads(msgPack).split(' ')
     conn.close()
     if cmd == 'run' and myself < int(n):
