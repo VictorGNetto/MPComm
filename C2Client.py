@@ -21,9 +21,9 @@ while True:
     (conn, addr) = s.accept()
     msgPack = conn.recv(1024)
     print(msgPack)
-    cmd, n, n_msgs = loads(msgPack)
+    cmd, n, n_msgs = loads(msgPack).split(' ')
     conn.close()
-    if cmd == 'run' and myself < n:
+    if cmd == 'run' and myself < int(n):
         system('python3 ./peerCommunicatorUDP.py {} {}'.format(n, n_msgs))
     elif cmd == 'exit':
         break

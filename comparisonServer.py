@@ -21,7 +21,9 @@ class ConstUpdater(threading.Thread):
 			(conn, addr) = constUpdaterSocket.accept()
 			msgPack = conn.recv(1024)
 			conn.close()
-			N, N_MSGS = pickle.loads(msgPack)
+			N, N_MSGS = pickle.loads(msgPack).split(' ')
+			N = int(N)
+			N_MSGS = int(N_MSGS)
 
 constUpdater = ConstUpdater()
 constUpdater.start()
