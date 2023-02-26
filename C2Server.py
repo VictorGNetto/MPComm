@@ -17,9 +17,10 @@ def send_cmd(cmd):
 
     msgPack = dumps((cmd, n, n_msgs))
     for i, peer in enumerate(PEERS):
+        print(i, n)
         if i == n:
             break
-        
+
         s = socket(AF_INET, SOCK_STREAM)
         s.connect((peer, 4569))
         s.send(msgPack)
