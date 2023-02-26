@@ -71,6 +71,7 @@ class MsgHandler(threading.Thread):
         msgPack = pickle.dumps(logList)
         clientSock.send(msgPack)
         clientSock.close()
+        print('imhere')
         
         return
 
