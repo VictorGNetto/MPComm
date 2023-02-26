@@ -3,8 +3,8 @@ from socket import *
 import pickle
 from constMP import *
 
-N = -1
-N_MSGS = -1
+N = 100
+N_MSGS = 1
 
 class ConstUpdater(threading.Thread):
 	def __init__(self):
