@@ -3,18 +3,28 @@ from constMP import *
 from pickle import loads
 from os import system
 
+myAddresses = gethostbyname_ex(gethostname())
+
 s = socket(AF_INET, SOCK_STREAM)
-s.bind((gethostbyname_ex(gethostname())[2][0], 4569))
+s.bind((myAddresses[2][0], 4569))
 s.listen(1)
+
+#Find out who am I
+myself = 0
+for addr in PEERS:
+    if addr in myAddresses[2]:
+        break
+    myself = myself + 1
+print('I am process ', str(myself))
 
 while True:
     (conn, addr) = s.accept()
     msgPack = conn.recv(1024)
-    msg = loads(msgPack)
+    cmd, n, n_msgs = loads(msgPack)
     conn.close()
-    if msg == 'run':
-        system('python3 ./peerCommunicatorUDP.py')
-    elif msg == 'exit':
+    if cmd == 'run' and myself < n:
+        system('python3 ./peerCommunicatorUDP.py {} {}'.format(n, n_msgs))
+    elif cmd == 'exit':
         break
 
 s.close()
