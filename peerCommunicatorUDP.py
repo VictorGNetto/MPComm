@@ -7,8 +7,8 @@ import pickle
 import sys
 from constMP import *
 
-N = sys.argv[1]
-N_MSGS = sys.argv[2]
+N = int(sys.argv[1])
+N_MSGS = int(sys.argv[2])
 
 myAddresses = gethostbyname_ex(gethostname())
 handShakes = [] # not used; only if we need to check whose handshake is missing
