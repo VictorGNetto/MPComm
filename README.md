@@ -15,8 +15,10 @@ The peer communication without coordination was tested via multiple experiments 
 
 To run multiple experiments, a simple **Command & Control (C2)** system was set up. The C2 Server was put in the same VM instance with the comparison server. From there, we start the comparison server and the C2 Server:
 - The comparison server just wait for messages to be compared and display how many of then was out of order
-- The C2 Server is in an infinite loop, wait for commands from the user. There is only 2 commands: 'run N N_MSGS', which make N peers to exchange N_MSGS messages; and 'exit', which just close the C2 Server and all C2 Clients.
+- The C2 Server is in an infinite loop, wait for commands from the user. There is only 2 commands: `run N N_MSGS`, which make `N` peers to exchange `N_MSGS` messages; and `exit`, which just close the C2 Server and all C2 Clients.
 Both servers, comparison and C2, are displayed in the section **C2 Server and Comparison Server** bellow.
+
+Each peer have its own script of the C2 Client. From each peer VM the C2 Client is put to run and then waits for commands coming from the C2 Server. When the C2 Client receive the command `run N N_MSGS`, it run the *peerCommunicatorUDP.py* for that peer whenever that peer are in the set of the `N` first peers. The number of messages to be exchanged for that peer are `N_MSGS`. The image of the peer processes runing are show in the section **Peers** bellow. 
 
 
 
@@ -26,3 +28,7 @@ Both servers, comparison and C2, are displayed in the section **C2 Server and Co
 
 ## C2 Server and Comparison Server
 ![C2 and Comparison servers](./images/comparacao.png)
+
+## Peers
+![C2 and Comparison servers](./images/peers-0123.png)
+![C2 and Comparison servers](./images/peers-4567.png)
