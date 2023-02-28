@@ -22,6 +22,7 @@ Each peer have its own script of the C2 Client. From each peer VM the C2 Client 
 
 ## Samples and Results
 For each choice of `N` and `N_MSGS` a total of **10** successful experiments were performed. The choices of `N` was 2, 3, 4, 6 and 8; and the choices of `N_MSGS` was 10, 50 and 100. The number of unordered messages as computed by the *comparisonServer.py* script are shown in the images bellow. The raw result can be found in the folder **results** of this project.
+
 ![peer-results-2](./images/results-2.png)
 ![peer-results-3](./images/results-3.png)
 ![peer-results-4](./images/results-4.png)
