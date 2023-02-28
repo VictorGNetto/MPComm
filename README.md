@@ -11,9 +11,18 @@ In order to actually see the problem, it is necessary to run the peer processes 
 # Results
 
 ## Methodology
-The peer communication without coordination was test via multiple experiments with different number of **messages** and **peers**. The peers are in different **Zone** of the Google Cloud (see the section **Peers Zone Configuration** bellow). The comparison server are also in the Google Cloud.
+The peer communication without coordination was tested via multiple experiments with different number of **messages** and **peers**. The peers are in different **Zone** of the Google Cloud (see the section **Peers Zone Configuration** bellow). The comparison server are also in the Google Cloud.
+
+To run multiple experiments, a simple **Command & Control (C2)** system was set up. The C2 Server was put in the same VM instance with the comparison server. From there, we start the comparison server and the C2 Server:
+- The comparison server just wait for messages to be compared and display how many of then was out of order
+- The C2 Server is in an infinite loop, wait for commands from the user. There is only 2 commands: 'run N N_MSGS', which make N peers to exchange N_MSGS messages; and 'exit', which just close the C2 Server and all C2 Clients.
+Both servers, comparison and C2, are displayed in the section **C2 Server and Comparison Server** bellow.
+
 
 
 # Images
 ## Peers Zone Configuration
-![alt text](./images/peers-location.png)
+![peers zone configuration](./images/peers-location.png)
+
+## C2 Server and Comparison Server
+![C2 and Comparison servers](./images/comparacao.png)
