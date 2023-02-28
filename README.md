@@ -18,8 +18,14 @@ To run multiple experiments, a simple **Command & Control (C2)** system was set 
 - The C2 Server is in an infinite loop, wait for commands from the user. There is only 2 commands: `run N N_MSGS`, which make `N` peers to exchange `N_MSGS` messages; and `exit`, which just close the C2 Server and all C2 Clients.
 Both servers, comparison and C2, are displayed in the section **C2 Server and Comparison Server** bellow.
 
-Each peer have its own script of the C2 Client. From each peer VM the C2 Client is put to run and then waits for commands coming from the C2 Server. When the C2 Client receive the command `run N N_MSGS`, it run the *peerCommunicatorUDP.py* for that peer whenever that peer are in the set of the `N` first peers. The number of messages to be exchanged for that peer are `N_MSGS`. The image of the peer processes runing are show in the section **Peers** bellow. 
+Each peer have its own script of the C2 Client. From each peer VM the C2 Client is put to run and then waits for commands coming from the C2 Server. When the C2 Client receive the command `run N N_MSGS`, it run the *peerCommunicatorUDP.py* for that peer whenever that peer are in the set of the `N` first peers. The number of messages to be exchanged for that peer are `N_MSGS`. The image of the peer processes runing are show in the section **Peers** bellow.
 
+## Sample and Results
+For each choice of `N` and `N_MSGS` a total of **10** successful experiments were performed. The choices of `N` was 2, 3, 4, 6 and 8; and the choices of `N_MSGS` was 10, 50 and 100. The number of unordered messages as computed by the *comparisonServer.py* script are shown bellow. The raw result can be found in the folder **results** of this project.
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
 
 # Images
