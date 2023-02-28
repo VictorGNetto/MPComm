@@ -30,6 +30,14 @@ For each choice of `N` and `N_MSGS` a total of **10** successful experiments wer
 ![peer-results-8](./images/results-8.png)
 
 
+# Efficient Alternatives
+There are several alternatives to solve the sorting problem in multicast messages:
+- Lamport clock: use logical clock and make a (logical) timestamp on every sent message. Incoming messages are held in a temporary queue where the order defined by the timestamp is maintained. When there are no more messages to arrive, the queues of all processes will be the same (as long as there is no loss of messages) and carrying their order. This algorithm is fully distributed but is inefficient as processes need to exchange many (quadratic order) messages with each other as part of the logical clock protocol.
+
+- Clock vector: if the exchanged messages maintain a cause and effect relationship, it is possible to guarantee the order of multicast messages using clock vector. In this algorithm, each process maintains a sort of estimate of the state of the logical clocks of all other processes in the system, and whenever two processes exchange messages, this estimate is updated. This 'weak synchronization' between processes allows messages to be sent in order, as long as they are causally related. This algorithm is efficient, but it does not completely solve our problem.
+
+- Centralized Server: finally, it is possible to solve our problem efficiently (linear order) using a centralized server that receives and forwards messages to the final recipient. That server will decide the order of the messages itself, for example using the order in which the messages arrived at it, and will then make an authoritative timestamp on those messages. When resending messages to peers, peers may even receive messages out of order, but they can reestablish it using the timestamp defined by the centralized server. The problem with this protocol is that it is no longer fully distributed, starting to depend on the proper functioning of a central system. Anyway, this problem can be mitigated by using other distributed systems strategies, such as election algorithms to define a new centralized server when a centralized server fails.
+
 # Images
 ## Peers Zone Configuration
 ![peers zone configuration](./images/peers-location.png)
