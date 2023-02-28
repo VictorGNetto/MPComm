@@ -1,0 +1,35 @@
+N_MSGS = 10
+Found 7 unordered message rounds
+Found 7 unordered message rounds
+Found 9 unordered message rounds
+Found 7 unordered message rounds
+Found 8 unordered message rounds
+Found 7 unordered message rounds
+Found 8 unordered message rounds
+Found 6 unordered message rounds
+Found 8 unordered message rounds
+Found 8 unordered message rounds
+
+N_MSGS = 50
+Found 42 unordered message rounds
+Found 42 unordered message rounds
+Found 42 unordered message rounds
+Found 48 unordered message rounds
+Found 45 unordered message rounds
+Found 47 unordered message rounds
+Found 41 unordered message rounds
+Found 41 unordered message rounds
+Found 42 unordered message rounds
+Found 43 unordered message rounds
+
+N_MSGS = 100
+Found 88 unordered message rounds
+Found 83 unordered message rounds
+Found 82 unordered message rounds
+Found 85 unordered message rounds
+Found 89 unordered message rounds
+Found 86 unordered message rounds
+Found 87 unordered message rounds
+Found 89 unordered message rounds
+Found 85 unordered message rounds
+Found 85 unordered message rounds

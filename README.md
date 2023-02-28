@@ -1,4 +1,4 @@
-# MPComm
+# MPComm - description
 Very simple demo of multicast communication without coordination.
 A set of peer processes is established and each process multicasts a sequence of messages to all other processes at random intervals. Messages are stamped with the ID of the sending process and a local sequence number defined by the sending process. This is a simple attempt to demonstrate the problem of message ordering (or, in this version, the lack of it).
 
@@ -6,3 +6,14 @@ The peer processes run the PeerCommunicatorUDP.py program, which has two separat
 
 
 In order to actually see the problem, it is necessary to run the peer processes on different networks (e.g., run some of the processes in one region of the cloud, whereas the others are run on another region).
+
+
+# Results
+
+## Methodology
+The peer communication without coordination was test via multiple experiments with different number of **messages** and **peers**. The peers are in different **Zone** of the Google Cloud (see the section **Peers Zone Configuration** bellow). The comparison server are also in the Google Cloud.
+
+
+# Images
+## Peers Zone Configuration
+![alt text](./images/peers-location.png)
